@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynchronousServer", "Async
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "D:\SET_lvl3\PROG2121-Windows Programming\A05\HiloFinal\hilo\Client\Client.csproj", "{3906F3FB-345C-4A02-8AEC-07FE93BBE102}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceHiLo", "..\ServiceHiLo\ServiceHiLo.csproj", "{34218CF5-1E7D-4F2E-88F0-F3AF3E2B0250}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3906F3FB-345C-4A02-8AEC-07FE93BBE102}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3906F3FB-345C-4A02-8AEC-07FE93BBE102}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3906F3FB-345C-4A02-8AEC-07FE93BBE102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34218CF5-1E7D-4F2E-88F0-F3AF3E2B0250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34218CF5-1E7D-4F2E-88F0-F3AF3E2B0250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34218CF5-1E7D-4F2E-88F0-F3AF3E2B0250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34218CF5-1E7D-4F2E-88F0-F3AF3E2B0250}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

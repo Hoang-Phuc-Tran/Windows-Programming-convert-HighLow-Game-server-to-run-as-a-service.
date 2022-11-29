@@ -1,8 +1,8 @@
 ﻿/*
- * Project:	    A - 05 : TCP/IP
+ * Project:	    A - 06 : Services
  * Author:	    Hoang Phuc Tran - 8789102
                 Bumsu Yi - 8110678
- * Date:		December 21, 2022
+ * Date:		December 28, 2022
  * Description: An application call the MyServer
  */
 using System;

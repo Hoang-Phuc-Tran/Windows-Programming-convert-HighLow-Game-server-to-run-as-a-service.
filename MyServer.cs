@@ -1,8 +1,8 @@
 ﻿/*
- * Project:	    A - 05 : TCP/IP
+ * Project:	    A - 06 : MyServer.cs
  * Author:	    Hoang Phuc Tran - 8789102
                 Bumsu Yi - 8110678
- * Date:		December 21, 2022
+ * Date:		December 28, 2022
  * Description: An application is the sever for the Hi-lo Game
  */
 using System;
@@ -19,15 +19,16 @@ using System.Security.Policy;
 namespace AsynchronousServer
 {
     /*
-    * CLASS NAME:  MainWindow
+    * CLASS NAME:  MyServer
     * PURPOSE : This class is used to as a sever for hi-lo Game
     */
-    class MyServer
+    public class MyServer
     {
         TcpClient acceptClient;
 
         ClientData clientData;
         NetworkStream stream;
+        public TcpListener listener = null;
 
         // get min and max from the App.config File
          int minNum = Convert.ToInt32(ConfigurationManager.AppSettings["minNum"]);
@@ -66,18 +67,18 @@ namespace AsynchronousServer
         */
         private void AsyncServerStart()
         {
-            TcpListener listener = new TcpListener(new IPEndPoint(IPAddress.Any, 9999));
+            listener = new TcpListener(new IPEndPoint(IPAddress.Any, 9999));
             
             listener.Start();
-            Console.WriteLine("Waiting for a connection...");
+            Logg.Log("Waiting for a connection...");
 
             while (exit)
             {
                 try
                 {
                     acceptClient = listener.AcceptTcpClient();
-                    Console.WriteLine("Range is {0} and {1}", minNum, maxNum);
-                    Console.WriteLine("Random number is: {0}", ranNum);
+                    Logg.Log("Range is " + minNum + " and " + maxNum);
+                    Logg.Log("Random number is: " + ranNum);
 
                     clientData = new ClientData(acceptClient);
                     stream = acceptClient.GetStream();
@@ -90,7 +91,7 @@ namespace AsynchronousServer
                 }
                 catch (Exception ex) 
                 {
-                    Console.WriteLine("ArgumentNullException: {0}", ex);
+                    Logg.Log("Exception: " + ex + "\n");
                 }
             }
         }
@@ -111,11 +112,9 @@ namespace AsynchronousServer
 
             if(readString == "Disconnected")
             {
-                Console.WriteLine("Disconnected");
+                Logg.Log("Disconnected" + "\n");
                 stream.Close();
                 acceptClient.Close();
-                curMin = minNum;
-                curMax = maxNum;
                 win = false;
                 ranNum = SetRanNum();
                 return;
@@ -171,8 +170,8 @@ namespace AsynchronousServer
                     ranNum = SetRanNum();
                     win = false;
                     dataToClient = "Game has started, your guess range is " + curMin + " to " + curMax + "\n";
-                    Console.WriteLine("Range is {0} and {1}", minNum, maxNum);
-                    Console.WriteLine("Random number is: {0}", ranNum);
+                    Logg.Log("Range is " + minNum + " and " + maxNum);
+                    Logg.Log("Random number is: " + ranNum);
                 }
 
                 if (win == true && guess == 2)
@@ -192,7 +191,7 @@ namespace AsynchronousServer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ArgumentNullException: {0}", ex);
+                Logg.Log("Exception: " + ex + "\n");
             }
         }
 

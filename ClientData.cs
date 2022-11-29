@@ -1,8 +1,8 @@
 ﻿/*
- * Project:	    A - 05 : TCP/IP
+ * Project:	    A - 06 : Services
  * Author:	    Hoang Phuc Tran - 8789102
                 Bumsu Yi - 8110678
- * Date:		December 21, 2022
+ * Date:		December 28, 2022
  * Description: An application is used to store the data from client
  */
 using System;
@@ -40,7 +40,7 @@ namespace AsynchronousServer
             string[] splitedData = clientEndPoint.Split(point);
             this.numberClient = int.Parse(splitedData[3]);
 
-            Console.WriteLine("User {0}'s connected successfully", numberClient);
+            Logg.Log("User " + numberClient + "'s connected successfully");
         }
     }
 }
